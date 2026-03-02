@@ -1,3 +1,6 @@
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning, module="huggingface_hub")
+
 import requests
 from PIL import Image
 # Process text and images to generate caption or answer questions
@@ -10,7 +13,7 @@ processor = AutoProcessor.from_pretrained("Salesforce/blip-image-captioning-base
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
 
 # Load your image, DON'T FORGET TO WRITE YOUR IMAGE NAME
-img_path = "Mapping AI Risk.jpeg"
+img_path = "Mapping AI Risk.png"
 
 # convert it into an RGB format 
 image = Image.open(img_path).convert('RGB')
